@@ -8,6 +8,7 @@
 ```yarn dev ```
 
 2.with npm
+
 ```npm install ```
 
 ```npm run dev ```
