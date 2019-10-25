@@ -1,0 +1,7 @@
+node_modules/
+yarn-error.log
+stats.json
+dist/
+.gitlab-ci.yml
+.next
+.idea/
