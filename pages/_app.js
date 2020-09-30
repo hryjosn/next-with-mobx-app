@@ -1,35 +1,40 @@
-import App from 'next/app'
 import React from 'react'
-import { fetchInitialStoreState, testStore } from '../src/store'
 import { Provider } from 'mobx-react'
 import * as stores from '../src/store'
+import 'mobx-react/batchingForReactDom';
+import Head from 'next/head';
+require('dotenv').config();
+import { appWithTranslation } from '@i18n'
 
-class MyMobxApp extends App {
 
-  // Fetching serialized(JSON) store state
-  static async getInitialProps(appContext) {
-    const appProps = await App.getInitialProps(appContext)
-    const initialStoreState = await fetchInitialStoreState()
+const MyApp = (props) => {
+    const { Component, pageProps } = props;
 
-    return {
-      ...appProps,
-      initialStoreState,
-    }
-  }
-
-  // Hydrate serialized state to store
-  // static getDerivedStateFromProps(props, state) {
-  //   state.store.hydrate(props.initialStoreState)
-  //   // return state
-  // }
-
-  render() {
-    const { Component, pageProps } = this.props
     return (
-      <Provider {...stores}>
-        <Component {...pageProps} />
-      </Provider>
-    )
-  }
+        <>
+            <Head>
+                <title> My Mentor</title>
+                <meta property="og:title" content=" My Mentor" key="title"/>
+
+            </Head>
+            <Provider {...stores}>
+                <style global jsx>{`              
+                  html,
+                  body,
+                  body > div:first-child{
+                    margin: 0;
+                    height: 100%;
+                    font-family:  sans-serif;
+                  }
+                `}</style>
+                <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet'
+                      type='text/css'/>
+                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                <Component {...pageProps} />
+            </Provider>
+
+        </>
+    );
 }
-export default MyMobxApp
+export default appWithTranslation(MyApp)
+

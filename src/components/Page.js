@@ -1,27 +1,23 @@
-import React from 'react'
-import Link from 'next/link'
-import { inject, observer } from 'mobx-react'
-import Clock from './Clock'
+import React, { useEffect } from 'react';
+import { Snackbar } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+import { useStores } from "@store";
 
-@inject('testStore')
-@observer
-class Page extends React.Component {
+const Page = ({ children }) => {
 
-  render() {
-    const { children } = this.props
+    const { snackBarVisible, handleClose, snackBarContent } = useStores()['LayoutStore']
+    useEffect(() => {
+    }, [])
     return (
-      <div>
-        <div>
-          {children}
+        <div style={{ height: "100%" }}>
+            {children}
+            <Snackbar open={snackBarVisible} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success">
+                    {snackBarContent}
+                </Alert>
+            </Snackbar>
         </div>
-        <nav>
-          <Link href={this.props.linkTo}>
-            <a>Navigate</a>
-          </Link>
-        </nav>
-      </div>
-    )
-  }
-}
+    );
+};
 
-export default Page
+export default Page;

@@ -3,7 +3,64 @@
     "next/babel"
   ],
   "plugins": [
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose": true }]
-  ]
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./"
+        ],
+        "alias": {
+          "@root": "./",
+          "@static": "./static",
+          "@store": "./src/store",
+          "@api": "./src/api/api",
+          "@containers": "./src/containers",
+          "@image": "./public/image",
+          "@components": "./src/components",
+          "@util": "./src/util",
+          "@storeAction": "./src/store/storeAction",
+          "@images": "./src/images",
+          "@helpers": "./src/helpers",
+          "@i18n": "./public/static/locales/i18n"
+        }
+      }
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ],
+    [
+      "emotion"
+    ],
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-proposal-nullish-coalescing-operator"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    "production": {
+      "plugins": [
+        [
+          "transform-remove-console",
+          {
+            "exclude": [
+              "error",
+              "warn"
+            ]
+          }
+        ]
+      ]
+    }
+  }
 }
