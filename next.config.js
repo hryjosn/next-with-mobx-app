@@ -12,6 +12,9 @@ module.exports =
     withImages({
             trailingSlash: false,
             rewrites: async () => nextI18NextRewrites(localeSubpaths),
+            generateBuildId: async () => {
+                return fs.readFileSync('hash.txt',"utf-8");
+            },
             publicRuntimeConfig: {
                 localeSubpaths,
             },
