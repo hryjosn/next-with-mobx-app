@@ -23,7 +23,8 @@
     "express": "^4.17.1",
     "next-i18next": "^6.0.2",
     "next-images": "^1.4.1",
-    "react-icons": "^3.11.0"
+    "react-icons": "^3.11.0",
+    "babel-plugin-transform-remove-console": "^6.9.4"
   },
   "license": "ISC",
   "devDependencies": {

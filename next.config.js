@@ -2,6 +2,7 @@ const withImages = require('next-images');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const { nextI18NextRewrites } = require('next-i18next/rewrites')
+const fs = require('fs');
 const localeSubpaths = {
     'en': 'en',
     'zh-TW': 'tw',
