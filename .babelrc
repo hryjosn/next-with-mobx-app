@@ -21,7 +21,7 @@
           "@storeAction": "./src/store/storeAction",
           "@images": "./src/images",
           "@helpers": "./src/helpers",
-          "@i18n": "./public/static/locales/i18n"
+          
         }
       }
     ],
@@ -38,7 +38,7 @@
       }
     ],
     [
-      "emotion"
+      "@emotion"
     ],
     "@babel/plugin-proposal-optional-chaining",
     "@babel/plugin-proposal-nullish-coalescing-operator"

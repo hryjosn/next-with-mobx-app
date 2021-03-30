@@ -1,23 +1,28 @@
 import { observer } from 'mobx-react';
 import React, { useEffect } from 'react';
 import { Page } from '@components';
-import { withTranslation } from '@i18n';
+import { appWithTranslation, useTranslation } from 'next-i18next';
+import { useStores } from '@store';
+import Board from './components/Board';
 
-
-const HomePage = ({t}) => {
-
+const HomePage = () => {
+    const { t } = useTranslation('footer');
+    const { HomeStore } = useStores();
+    const { init } = HomeStore;
     useEffect(() => {
+        init();
     }, []);
     return (
         <Page>
             {t('head_signup')}
+            <div>
+                <Board/>
+            </div>
         </Page>
-
-
     );
 };
 HomePage.getInitialProps = async () => ({
     namespacesRequired: ['home'],
-})
+});
 
-export default withTranslation('home')(observer(HomePage));
+export default appWithTranslation(observer(HomePage));

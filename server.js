@@ -1,6 +1,6 @@
 const express = require('express');
 const next = require('next');
-const nextI18next = require('./public/static/locales/i18n');
+const nextI18next = require('./next-i18next.config');
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
@@ -10,7 +10,7 @@ const handle = app.getRequestHandler();
     await app.prepare();
     const server = express();
     // await nextI18next.initPromise;
-    server.use('/public', express.static('public'))
+    server.use('/public', express.static('public'));
 
     server.get('*', (req, res) => handle(req, res));
     await server.listen(port);
