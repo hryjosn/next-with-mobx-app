@@ -14,7 +14,7 @@ const HomePage = () => {
     }, []);
     return (
         <Page>
-            <Main/>
+            <Main />
         </Page>
     );
 };
