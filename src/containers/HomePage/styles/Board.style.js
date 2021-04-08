@@ -8,7 +8,7 @@ export const MyBoard = styled.div`
   .whiteboard {
     height: 100%;
     width: 100%;
-    position: absolute;
+    //position: absolute;
     left: 0;
     right: 0;
     bottom: 0;

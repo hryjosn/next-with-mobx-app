@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Page } from '@components';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { useStores } from '@store';
-import Board from './components/Board';
+import Main from './components/main';
 
 const HomePage = () => {
     const { t } = useTranslation('footer');
@@ -14,10 +14,7 @@ const HomePage = () => {
     }, []);
     return (
         <Page>
-            {t('head_signup')}
-            <div>
-                <Board/>
-            </div>
+            <Main/>
         </Page>
     );
 };

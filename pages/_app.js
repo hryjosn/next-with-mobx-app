@@ -4,6 +4,7 @@ import * as stores from '../src/store';
 import Head from 'next/head';
 require('dotenv').config();
 import { appWithTranslation } from 'next-i18next';
+import "./main.css";
 
 const MyApp = (props) => {
     const { Component, pageProps } = props;

@@ -11,10 +11,10 @@ const { i18n } = require('./next-i18next.config');
 
 module.exports = withImages({
     trailingSlash: false,
-
     generateBuildId: async () => {
         return fs.readFileSync('hash.txt', 'utf-8');
     },
+
     publicRuntimeConfig: {
         localeSubpaths,
     },
